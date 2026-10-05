@@ -1,0 +1,6 @@
+# generated
+build/
+__pycache__/
+*.pyc
+# your personal active config (create it with: ./virtual-monitor.sh profile <name>)
+config/virtual-monitor.conf
