@@ -22,8 +22,8 @@ warn() { echo "warning: $*" >&2; }
 # First run: create the (git-ignored) active config from a stock profile.
 if [ ! -f "$CONF" ]; then
   [ -z "${VM_CONFIG:-}" ] || die "config file not found: $CONF"
-  mkdir -p "$(dirname "$CONF")" && cp "$ROOT/profiles/fullhd-60.conf" "$CONF"
-  echo "Created $CONF from profiles/fullhd-60.conf (pick another with: $0 profile <name>)" >&2
+  mkdir -p "$(dirname "$CONF")" && cp "$ROOT/config/virtual-monitor.conf.example" "$CONF"
+  echo "Created $CONF from config/virtual-monitor.conf.example (edit it, or pick a preset: $0 profile <name>)" >&2
 fi
 # shellcheck disable=SC1090
 source "$CONF"

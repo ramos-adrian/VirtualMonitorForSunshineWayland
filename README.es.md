@@ -115,7 +115,8 @@ monitores físicos; al terminar la sesión se restauran. Manualmente: `./virtual
 
 ## Cambiar de dispositivo / resolución
 
-Todo sale de `config/virtual-monitor.conf`:
+Todo sale de `config/virtual-monitor.conf` (tu configuración activa, ignorada por git). Se crea la primera vez
+a partir de la plantilla documentada [`config/virtual-monitor.conf.example`](config/virtual-monitor.conf.example):
 
 | Variable | Significado |
 |---|---|

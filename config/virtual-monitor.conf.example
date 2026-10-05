@@ -1,0 +1,42 @@
+# virtual-monitor configuration (sourced by virtual-monitor.sh as shell variables).
+#
+# Your active config is config/virtual-monitor.conf (git-ignored). It is created from this file the first
+# time you run the script, or replaced by a preset with:  ./virtual-monitor.sh profile <name>   (see profiles/)
+#
+# After changing CONNECTOR/WIDTH/HEIGHT/REFRESH/EXTRA_MODE/DIAGONAL_INCH/NAME/VENDOR apply it with:
+#   sudo ./virtual-monitor.sh install   (then reboot)
+#   sudo ./virtual-monitor.sh reload    (no reboot, best effort)
+# SCALE only affects solo mode (./virtual-monitor.sh on); no reinstall needed.
+
+# Connector to fake. "auto" picks the first unplugged DP, then HDMI, then other connector that is NOT on the
+# nvidia driver (it ignores EDID overrides). Or set it by hand, e.g. "DP-4" / "HDMI-A-1".
+# List candidates and see which one would be used:  ./virtual-monitor.sh connectors
+# Pick a port you will never plug a real monitor into.
+CONNECTOR="auto"
+
+# Native resolution and refresh rate (Hz) of the device you stream to.
+# Examples: tablet 2000x1200, Full HD 1920x1080, iPad Pro 11" 2388x1668, phone 2400x1080.
+WIDTH=1920
+HEIGHT=1080
+REFRESH=60
+
+# Optional second resolution advertised in the EDID (selectable in the desktop's display settings).
+# Format WxH@Hz. Leave "" to disable.
+EXTRA_MODE=""
+
+# Physical screen diagonal in inches. Only a size hint the desktop uses for scaling decisions.
+DIAGONAL_INCH=10.4
+
+# EDID product name: 1-13 characters, letters/digits/_/- only (no spaces).
+# The scripts use it to find the virtual monitor again, so keep it unique among your monitors.
+NAME="VirtualMon"
+
+# EDID maker id: exactly 3 uppercase letters. GNOME shows "<maker> <inches>" (e.g. VMN 11").
+# A code registered in /usr/share/hwdata/pnp.ids shows that company's name (LNX = The Linux Foundation,
+# SAM = Samsung); an unregistered one shows the raw letters. There is no free-text label.
+# If you change it, re-run:  ./virtual-monitor.sh login   (GNOME keys saved layouts by maker)
+VENDOR="VMN"
+
+# Desktop scale used while the virtual monitor is the only one active: 1, 1.25, 1.5, 2 ...
+# High-resolution small screens (2000x1200 on 10") are usually comfortable at 1.25-1.5.
+SCALE=1

@@ -52,7 +52,9 @@ sudo reboot
 
 ## Configuration
 
-`config/virtual-monitor.conf` (created from a profile, git-ignored). Copy a file from `profiles/` to add a device.
+`config/virtual-monitor.conf` is your active config (git-ignored). It is created from the documented template
+[`config/virtual-monitor.conf.example`](config/virtual-monitor.conf.example) on first run, or replaced by a preset with
+`./virtual-monitor.sh profile <name>`. Copy a file from `profiles/` to add a device.
 
 | Variable | Meaning |
 |---|---|

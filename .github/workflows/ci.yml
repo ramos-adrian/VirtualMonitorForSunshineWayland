@@ -15,6 +15,6 @@ jobs:
           shellcheck -x virtual-monitor.sh
       - name: Every profile generates a valid EDID
         run: |
-          for p in profiles/*.conf; do
+          for p in profiles/*.conf config/virtual-monitor.conf.example; do
             VM_CONFIG="$p" ./virtual-monitor.sh gen
           done
